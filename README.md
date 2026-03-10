@@ -18,31 +18,11 @@ Then please cd into the root of the repo by:
 cd Uber_Dashboard_R
 ```
 
-3.  Create the virtual environment with:
-
-``` bash
-conda env create -f environment.yml
-```
-
-4.  Once the environment is created, activate it with:
-
-``` bash
-conda activate dsci-532_2026_32_Uber_dashboard
-```
-
 5.  Run the app locally with:
 
 ``` bash
-shiny run src/app.R
+Rscript -e "shiny::runApp('src/app.R', launch.browser=TRUE)"
 ```
 
 ## Deployment
-The dashboard is deployed on posit cloud, and the stable build version can be accessed at the following URL: https://019cca41-6593-d698-f198-826bf5222992.share.connect.posit.cloud/ .
-
-
-
-
-
-
-
-
+The dashboard is deployed on posit cloud, and the stable build version can be accessed at the following URL: https://019cd95f-055c-bbf6-aaec-1c8239e036d5.share.connect.posit.cloud/ .
