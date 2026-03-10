@@ -3,6 +3,8 @@ library(plotly)
 library(dplyr)
 library(readr)
 library(lubridate)
+library(rsconnect)
+
 
 # ---------------- DATA ----------------
 csv_path <- file.path("..", "data", "raw", "ncr_ride_bookings.csv")
