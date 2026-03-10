@@ -90,12 +90,11 @@
         "NeedsCompilation": "no",
         "Repository": "CRAN",
         "Date/Publication": "2022-04-03 19:20:13 UTC",
-        "Built": "R 4.5.0; ; 2025-04-08 00:42:19 UTC; windows",
+        "Built": "R 4.5.2; ; 2025-11-01 00:30:56 UTC; windows",
         "RemoteType": "standard",
         "RemotePkgRef": "RColorBrewer",
         "RemoteRef": "RColorBrewer",
-        "RemoteRepos": "https://cran.rstudio.com/",
-        "RemotePkgPlatform": "i386+x86_64-w64-mingw32",
+        "RemoteRepos": "https://cran.rstudio.com",
         "RemoteSha": "1.1-3"
       }
     },
@@ -3059,7 +3058,7 @@
       "checksum": "7adb2de74b63a599f06670e9d27e3a1c"
     },
     "app.R": {
-      "checksum": "493354bd5d00bdb0299646bb6057f7f5"
+      "checksum": "3b395e6f87643b5e91d52d9b93e0bafb"
     }
   },
   "users": null

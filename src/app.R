@@ -4,6 +4,7 @@ library(dplyr)
 library(readr)
 library(lubridate)
 library(rsconnect)
+library(RColorBrewer)
 
 
 # ---------------- DATA ----------------
@@ -141,27 +142,36 @@ server <- function(input, output, session) {
 
   # ---------------- PIE CHART ----------------
   output$pie_chart <- renderPlotly({
-    revenue <- filtered_data() %>%
+    
+    df <- filtered_data()
+    
+    if (nrow(df) == 0) {
+      return(NULL)
+    }
+    
+    revenue <- df %>%
+      mutate(Booking_Value = as.numeric(Booking_Value)) %>%
+      filter(!is.na(Vehicle_Type)) %>%
       group_by(Vehicle_Type) %>%
-      summarise(Booking_Value = sum(Booking_Value, na.rm = TRUE), .groups = "drop")
-
+      summarise(
+        Booking_Value = sum(Booking_Value, na.rm = TRUE),
+        .groups = "drop"
+      )
+    
     plot_ly(
-      revenue,
+      data = revenue,
       labels = ~Vehicle_Type,
       values = ~Booking_Value,
-      type   = "pie",
+      type = "pie",
       textinfo = "percent+label",
-      textposition = "inside",
-      marker = list(colors = RColorBrewer::brewer.pal(
-        max(3, nrow(revenue)), "Set2")[1:nrow(revenue)])
+      textposition = "inside"
     ) %>%
       layout(
         showlegend = FALSE,
         margin = list(l = 0, r = 0, t = 10, b = 0),
         paper_bgcolor = "white"
       )
-  })
-}
+  })}
 
 # ---------------- APP ----------------
 shinyApp(ui = ui, server = server)
